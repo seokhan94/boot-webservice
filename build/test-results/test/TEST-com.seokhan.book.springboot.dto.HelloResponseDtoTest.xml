@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.seokhan.book.springboot.dto.HelloResponseDtoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-05-22T15:41:32" hostname="seokhanui-MacBookPro.local" time="0.024">
+<testsuite name="com.seokhan.book.springboot.dto.HelloResponseDtoTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-05-22T15:58:43" hostname="seokhanui-MacBookPro.local" time="0.023">
   <properties/>
-  <testcase name="lombok_unit_test" classname="com.seokhan.book.springboot.dto.HelloResponseDtoTest" time="0.024"/>
+  <testcase name="lombok_unit_test" classname="com.seokhan.book.springboot.dto.HelloResponseDtoTest" time="0.023"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
