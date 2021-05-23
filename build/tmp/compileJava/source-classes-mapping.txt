@@ -1,2 +1,0 @@
-com/seokhan/book/springboot/Application.java
- com.seokhan.book.springboot.Application
