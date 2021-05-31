@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     // "/"등 지정된 URL들은 permitAll() 옵션을 통해 전체 열람 권한을 줌.
                     // "/api/v1/**" 주소를 가진 API는 USER권한을 가진 사람만 가능하도록 함.
                     .authorizeRequests()
-                    .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**")
+                    .antMatchers("/", "/css/**", "/images/**", "/js/**", "/h2-console/**", "/profile")
                         .permitAll()
                      .antMatchers("/api/v1/**")
                         .hasRole(Role.USER.name())
