@@ -26,7 +26,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group 'com.seokhan.book'
-version '1.0-SNAPSHOT'
+version '1.0.1-SNAPSHOT-' + new Date().format("yyyyMMddHHmmss")
 
 // repositories는 각종 의존성(라이브러리)들을 어떤 원격 저장소에서 받을지를 결정.
 // 기본적으로 mavenCentral을 많이 사용하지만, 최근에는 jcenter도 많이 사용함.
