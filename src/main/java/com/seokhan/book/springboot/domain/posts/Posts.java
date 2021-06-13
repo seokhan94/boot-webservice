@@ -22,6 +22,7 @@ import javax.persistence.*;
 // 기본적인 구조는 생성자를 통해 최종값을 채운 후 DB에 삽입하는 것이며, 값 변경이 필요한 경우 해당 이벤트에 맞는 public 메소드를 호출하여 변경하는 것을 전제로 한다.
 //
 @Entity
+@Table(name = "posts")
 public class Posts extends BaseTimeEntity {
 
     // 해당 테이블의 PK필드를 나타낸다.

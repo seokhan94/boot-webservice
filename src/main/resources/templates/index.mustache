@@ -12,7 +12,7 @@
                     여기서도 역시 userName이 있다면 userName을 노출시키도록 구성함.
                 -->
                 {{#userName}}
-                    Logged in as: <span id="user">{{userName}}</span>
+                    Logged in as: <span id="users">{{userName}}</span>
                     <!--
                         스프링 시큐리티에서 기본적으로 제공하는 로그아웃 url이다.
                         즉, 개발자가 별도로 저 URL에 해당하는 컨트롤러를 만들 필요가 없다.
@@ -35,6 +35,8 @@
                         /oauth2/authorization/ 까지는 고정이고 마지막 Path만 각 소셜 로그인 코드를 사용하면 됨.
                     -->
                     <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
+
+                    <a href="/oauth2/authorization/kakao" class="btn btn-warning active" role="button">Kakao Login</a>
                 {{/userName}}
             </div>
         </div>

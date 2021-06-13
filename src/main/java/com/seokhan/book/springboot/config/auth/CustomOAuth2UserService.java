@@ -2,8 +2,8 @@ package com.seokhan.book.springboot.config.auth;
 
 import com.seokhan.book.springboot.config.auth.dto.OAuthAttributes;
 import com.seokhan.book.springboot.config.auth.dto.SessionUser;
-import com.seokhan.book.springboot.domain.user.User;
-import com.seokhan.book.springboot.domain.user.UserRepository;
+import com.seokhan.book.springboot.domain.users.Users;
+import com.seokhan.book.springboot.domain.users.UsersRepository;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -21,7 +21,7 @@ import java.util.Collections;
 @RequiredArgsConstructor
 @Service
 public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequest, OAuth2User> {
-    private final UserRepository userRepository;
+    private final UsersRepository usersRepository;
     private final HttpSession httpSession;
 
     @Override
@@ -45,23 +45,23 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         // 바로 아래에서 이 클래스의 코드가 나오니 차례로 생성하면 됨.
         OAuthAttributes attributes = OAuthAttributes.of(registrationId, userNameAttributeName, oAuth2User.getAttributes());
 
-        User user = saveOrUpdate(attributes);
+        Users users = saveOrUpdate(attributes);
         // SessionUser
         // 세션에서 사용자 정보를 저장하기 위한 Dto 클래스.
-        httpSession.setAttribute("user", new SessionUser(user));
+        httpSession.setAttribute("users", new SessionUser(users));
 
         return new DefaultOAuth2User(
-                Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey())),
+                Collections.singleton(new SimpleGrantedAuthority(users.getRoleKey())),
                     attributes.getAttributes(),
                     attributes.getNameAttributeKey());
     }
 
-    private User saveOrUpdate(OAuthAttributes attributes){
-        User user = userRepository.findByEmail(attributes.getEmail())
+    private Users saveOrUpdate(OAuthAttributes attributes){
+        Users users = usersRepository.findByEmail(attributes.getEmail())
                 .map(entity -> entity.update(attributes.getName(), attributes.getPicture()))
                 .orElse(attributes.toEntity());
 
-        return userRepository.save(user);
+        return usersRepository.save(users);
     }
 
 }
